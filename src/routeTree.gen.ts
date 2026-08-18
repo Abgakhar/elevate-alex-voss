@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutThePractitionerRouteImport } from './routes/about-the-practitioner'
+import { Route as FeaturedTherapiesRatesRouteImport } from './routes/featured-therapies-rates'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutThePractitionerRoute = AboutThePractitionerRouteImport.update({
+  id: '/about-the-practitioner',
+  path: '/about-the-practitioner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturedTherapiesRatesRoute = FeaturedTherapiesRatesRouteImport.update({
+  id: '/featured-therapies-rates',
+  path: '/featured-therapies-rates',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-the-practitioner': typeof AboutThePractitionerRoute
+  '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-the-practitioner': typeof AboutThePractitionerRoute
+  '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-the-practitioner': typeof AboutThePractitionerRoute
+  '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/about-the-practitioner' | '/featured-therapies-rates'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about-the-practitioner' | '/featured-therapies-rates'
+  id: '__root__' | '/' | '/about-the-practitioner' | '/featured-therapies-rates'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutThePractitionerRoute: typeof AboutThePractitionerRoute
+  FeaturedTherapiesRatesRoute: typeof FeaturedTherapiesRatesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about-the-practitioner': {
+      id: '/about-the-practitioner'
+      path: '/about-the-practitioner'
+      fullPath: '/about-the-practitioner'
+      preLoaderRoute: typeof AboutThePractitionerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/featured-therapies-rates': {
+      id: '/featured-therapies-rates'
+      path: '/featured-therapies-rates'
+      fullPath: '/featured-therapies-rates'
+      preLoaderRoute: typeof FeaturedTherapiesRatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutThePractitionerRoute: AboutThePractitionerRoute,
+  FeaturedTherapiesRatesRoute: FeaturedTherapiesRatesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
