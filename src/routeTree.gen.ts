@@ -12,6 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutThePractitionerRouteImport } from './routes/about-the-practitioner'
 import { Route as BenefitsOfMassageRouteImport } from './routes/benefits-of-massage'
+import { Route as BodysenseRouteImport } from './routes/bodysense'
+import { Route as BookASessionRouteImport } from './routes/book-a-session'
+import { Route as CancellationPolicyRefundsRouteImport } from './routes/cancellation-policy-refunds'
 import { Route as ExclusiveServicesRouteImport } from './routes/exclusive-services'
 import { Route as FeaturedTherapiesRatesRouteImport } from './routes/featured-therapies-rates'
 import { Route as FrequentlyAskedQuestionsRouteImport } from './routes/frequently-asked-questions'
@@ -32,6 +35,22 @@ const BenefitsOfMassageRoute = BenefitsOfMassageRouteImport.update({
   path: '/benefits-of-massage',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BodysenseRoute = BodysenseRouteImport.update({
+  id: '/bodysense',
+  path: '/bodysense',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookASessionRoute = BookASessionRouteImport.update({
+  id: '/book-a-session',
+  path: '/book-a-session',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CancellationPolicyRefundsRoute =
+  CancellationPolicyRefundsRouteImport.update({
+    id: '/cancellation-policy-refunds',
+    path: '/cancellation-policy-refunds',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ExclusiveServicesRoute = ExclusiveServicesRouteImport.update({
   id: '/exclusive-services',
   path: '/exclusive-services',
@@ -58,6 +77,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-the-practitioner': typeof AboutThePractitionerRoute
   '/benefits-of-massage': typeof BenefitsOfMassageRoute
+  '/bodysense': typeof BodysenseRoute
+  '/book-a-session': typeof BookASessionRoute
+  '/cancellation-policy-refunds': typeof CancellationPolicyRefundsRoute
   '/exclusive-services': typeof ExclusiveServicesRoute
   '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
   '/frequently-asked-questions': typeof FrequentlyAskedQuestionsRoute
@@ -67,6 +89,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-the-practitioner': typeof AboutThePractitionerRoute
   '/benefits-of-massage': typeof BenefitsOfMassageRoute
+  '/bodysense': typeof BodysenseRoute
+  '/book-a-session': typeof BookASessionRoute
+  '/cancellation-policy-refunds': typeof CancellationPolicyRefundsRoute
   '/exclusive-services': typeof ExclusiveServicesRoute
   '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
   '/frequently-asked-questions': typeof FrequentlyAskedQuestionsRoute
@@ -77,6 +102,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about-the-practitioner': typeof AboutThePractitionerRoute
   '/benefits-of-massage': typeof BenefitsOfMassageRoute
+  '/bodysense': typeof BodysenseRoute
+  '/book-a-session': typeof BookASessionRoute
+  '/cancellation-policy-refunds': typeof CancellationPolicyRefundsRoute
   '/exclusive-services': typeof ExclusiveServicesRoute
   '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
   '/frequently-asked-questions': typeof FrequentlyAskedQuestionsRoute
@@ -88,6 +116,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about-the-practitioner'
     | '/benefits-of-massage'
+    | '/bodysense'
+    | '/book-a-session'
+    | '/cancellation-policy-refunds'
     | '/exclusive-services'
     | '/featured-therapies-rates'
     | '/frequently-asked-questions'
@@ -97,6 +128,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about-the-practitioner'
     | '/benefits-of-massage'
+    | '/bodysense'
+    | '/book-a-session'
+    | '/cancellation-policy-refunds'
     | '/exclusive-services'
     | '/featured-therapies-rates'
     | '/frequently-asked-questions'
@@ -106,6 +140,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about-the-practitioner'
     | '/benefits-of-massage'
+    | '/bodysense'
+    | '/book-a-session'
+    | '/cancellation-policy-refunds'
     | '/exclusive-services'
     | '/featured-therapies-rates'
     | '/frequently-asked-questions'
@@ -116,6 +153,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutThePractitionerRoute: typeof AboutThePractitionerRoute
   BenefitsOfMassageRoute: typeof BenefitsOfMassageRoute
+  BodysenseRoute: typeof BodysenseRoute
+  BookASessionRoute: typeof BookASessionRoute
+  CancellationPolicyRefundsRoute: typeof CancellationPolicyRefundsRoute
   ExclusiveServicesRoute: typeof ExclusiveServicesRoute
   FeaturedTherapiesRatesRoute: typeof FeaturedTherapiesRatesRoute
   FrequentlyAskedQuestionsRoute: typeof FrequentlyAskedQuestionsRoute
@@ -143,6 +183,27 @@ declare module '@tanstack/react-router' {
       path: '/benefits-of-massage'
       fullPath: '/benefits-of-massage'
       preLoaderRoute: typeof BenefitsOfMassageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bodysense': {
+      id: '/bodysense'
+      path: '/bodysense'
+      fullPath: '/bodysense'
+      preLoaderRoute: typeof BodysenseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-a-session': {
+      id: '/book-a-session'
+      path: '/book-a-session'
+      fullPath: '/book-a-session'
+      preLoaderRoute: typeof BookASessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancellation-policy-refunds': {
+      id: '/cancellation-policy-refunds'
+      path: '/cancellation-policy-refunds'
+      fullPath: '/cancellation-policy-refunds'
+      preLoaderRoute: typeof CancellationPolicyRefundsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exclusive-services': {
@@ -180,6 +241,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutThePractitionerRoute: AboutThePractitionerRoute,
   BenefitsOfMassageRoute: BenefitsOfMassageRoute,
+  BodysenseRoute: BodysenseRoute,
+  BookASessionRoute: BookASessionRoute,
+  CancellationPolicyRefundsRoute: CancellationPolicyRefundsRoute,
   ExclusiveServicesRoute: ExclusiveServicesRoute,
   FeaturedTherapiesRatesRoute: FeaturedTherapiesRatesRoute,
   FrequentlyAskedQuestionsRoute: FrequentlyAskedQuestionsRoute,
