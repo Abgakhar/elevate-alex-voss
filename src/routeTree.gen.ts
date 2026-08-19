@@ -11,7 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutThePractitionerRouteImport } from './routes/about-the-practitioner'
+import { Route as BenefitsOfMassageRouteImport } from './routes/benefits-of-massage'
+import { Route as ExclusiveServicesRouteImport } from './routes/exclusive-services'
 import { Route as FeaturedTherapiesRatesRouteImport } from './routes/featured-therapies-rates'
+import { Route as FrequentlyAskedQuestionsRouteImport } from './routes/frequently-asked-questions'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +27,99 @@ const AboutThePractitionerRoute = AboutThePractitionerRouteImport.update({
   path: '/about-the-practitioner',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BenefitsOfMassageRoute = BenefitsOfMassageRouteImport.update({
+  id: '/benefits-of-massage',
+  path: '/benefits-of-massage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExclusiveServicesRoute = ExclusiveServicesRouteImport.update({
+  id: '/exclusive-services',
+  path: '/exclusive-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeaturedTherapiesRatesRoute = FeaturedTherapiesRatesRouteImport.update({
   id: '/featured-therapies-rates',
   path: '/featured-therapies-rates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrequentlyAskedQuestionsRoute =
+  FrequentlyAskedQuestionsRouteImport.update({
+    id: '/frequently-asked-questions',
+    path: '/frequently-asked-questions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-the-practitioner': typeof AboutThePractitionerRoute
+  '/benefits-of-massage': typeof BenefitsOfMassageRoute
+  '/exclusive-services': typeof ExclusiveServicesRoute
   '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
+  '/frequently-asked-questions': typeof FrequentlyAskedQuestionsRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-the-practitioner': typeof AboutThePractitionerRoute
+  '/benefits-of-massage': typeof BenefitsOfMassageRoute
+  '/exclusive-services': typeof ExclusiveServicesRoute
   '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
+  '/frequently-asked-questions': typeof FrequentlyAskedQuestionsRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-the-practitioner': typeof AboutThePractitionerRoute
+  '/benefits-of-massage': typeof BenefitsOfMassageRoute
+  '/exclusive-services': typeof ExclusiveServicesRoute
   '/featured-therapies-rates': typeof FeaturedTherapiesRatesRoute
+  '/frequently-asked-questions': typeof FrequentlyAskedQuestionsRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about-the-practitioner' | '/featured-therapies-rates'
+  fullPaths:
+    | '/'
+    | '/about-the-practitioner'
+    | '/benefits-of-massage'
+    | '/exclusive-services'
+    | '/featured-therapies-rates'
+    | '/frequently-asked-questions'
+    | '/testimonials'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about-the-practitioner' | '/featured-therapies-rates'
-  id: '__root__' | '/' | '/about-the-practitioner' | '/featured-therapies-rates'
+  to:
+    | '/'
+    | '/about-the-practitioner'
+    | '/benefits-of-massage'
+    | '/exclusive-services'
+    | '/featured-therapies-rates'
+    | '/frequently-asked-questions'
+    | '/testimonials'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-the-practitioner'
+    | '/benefits-of-massage'
+    | '/exclusive-services'
+    | '/featured-therapies-rates'
+    | '/frequently-asked-questions'
+    | '/testimonials'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutThePractitionerRoute: typeof AboutThePractitionerRoute
+  BenefitsOfMassageRoute: typeof BenefitsOfMassageRoute
+  ExclusiveServicesRoute: typeof ExclusiveServicesRoute
   FeaturedTherapiesRatesRoute: typeof FeaturedTherapiesRatesRoute
+  FrequentlyAskedQuestionsRoute: typeof FrequentlyAskedQuestionsRoute
+  TestimonialsRoute: typeof TestimonialsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +138,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutThePractitionerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/benefits-of-massage': {
+      id: '/benefits-of-massage'
+      path: '/benefits-of-massage'
+      fullPath: '/benefits-of-massage'
+      preLoaderRoute: typeof BenefitsOfMassageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exclusive-services': {
+      id: '/exclusive-services'
+      path: '/exclusive-services'
+      fullPath: '/exclusive-services'
+      preLoaderRoute: typeof ExclusiveServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/featured-therapies-rates': {
       id: '/featured-therapies-rates'
       path: '/featured-therapies-rates'
       fullPath: '/featured-therapies-rates'
       preLoaderRoute: typeof FeaturedTherapiesRatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/frequently-asked-questions': {
+      id: '/frequently-asked-questions'
+      path: '/frequently-asked-questions'
+      fullPath: '/frequently-asked-questions'
+      preLoaderRoute: typeof FrequentlyAskedQuestionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +179,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutThePractitionerRoute: AboutThePractitionerRoute,
+  BenefitsOfMassageRoute: BenefitsOfMassageRoute,
+  ExclusiveServicesRoute: ExclusiveServicesRoute,
   FeaturedTherapiesRatesRoute: FeaturedTherapiesRatesRoute,
+  FrequentlyAskedQuestionsRoute: FrequentlyAskedQuestionsRoute,
+  TestimonialsRoute: TestimonialsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
